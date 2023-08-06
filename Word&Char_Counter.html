@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word-Counter</title>
+    <style>
+        body
+        {
+            padding: 0px 100px;
+            background-color: gray;
+          
+        }
+        h1
+        {
+            text-align: center;
+            background-color:#0067B0 ;
+            color: white;
+            padding: 10px;
+            margin: 0;
+        }
+        #textbox
+        {
+             width: 99.3%;
+             border-color: #0067B0 ;
+             font-size: 17px;
+        }
+        p
+        {
+            text-align: center;
+            background-color: #0067B0 ;
+            font-size: 25px;
+            font-weight: bold;
+            color: white;
+            padding: 10px;
+            margin: 0px;
+            color: thistle;
+
+        }
+        button
+      {
+       
+       cursor: pointer;
+       border-radius: 50%;
+       padding: 5px 15px;
+       margin: 0px 10px;
+       
+      }
+      #btn0
+        {
+           color:white;
+           background-color:#636396;
+           font-size: 20px;
+           border-radius: 10px;
+        }
+        #btn1
+        {
+          color:white;
+           background-color: #966bb5;
+           font-size: 20px;
+           border-radius: 10px;
+        }
+        #btn2
+        {
+          color:white;
+           background-color: orange;
+           font-size: 20px;
+           border-radius: 10px;
+        }
+       
+        #btn4
+        {
+          color:white;
+           background-color: rgb(77, 151, 77);
+           font-size: 20px;
+           border-radius: 10px;
+        }
+        #btn5
+        {
+          color:black;
+           background-color: #bbbd67;
+           font-size: 20px;
+           border-radius: 10px;
+        }
+        #btn
+        {
+          
+          color:black;
+           background-color:white;
+           font-size: 20px;
+           border-radius: 10px;
+        }
+        .container
+        {
+            display:flex;
+            flex-direction: row;
+        }
+       
+
+    </style>
+</head>
+<body>
+    <div class="container">
+    <button id="btn" onclick="bgchange('white')">Default</button>
+    <button id="btn0" onclick="bgchange('#636396')">Lblue</button>
+    <button id="btn1" onclick="bgchange('#966bb5')">LPurple</button>
+     <button id="btn2" onclick="bgchange('#b07d30')">LOrange</button>
+    <button id="btn4" onclick="bgchange('rgb(77, 151, 77)')">LGreen</button> 
+    <button id="btn5" onclick="bgchange('#989946')">LYellow</button>
+</div>
+    
+    <h1>Word and character counter</h1>
+    <textarea id="textbox" cols="30" rows="10" onclick="bgchange()"></textarea>
+    
+    <p>
+        <span id="word">0</span> word and 
+        <span id="char">0</span> character
+       
+    </p>
+    <script>
+
+        let textbox=document.getElementById("textbox");
+        textbox.addEventListener('input',function(){
+            var text=this.value;  
+            let char=text.length;
+            document.getElementById("char").innerHTML=char;
+            text=text.trim();
+            let words = text.split(" ");
+            let cleanList=words.filter(function(elm){
+
+                return elm !="";
+            })
+            
+            document.getElementById("word").innerHTML=cleanList.length;
+        })
+        function bgchange(color){
+            let textbox=document.getElementById("textbox");
+            textbox.style.backgroundColor=color;
+
+        }
+    </script>
+    
+</body>
+</html>
