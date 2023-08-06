@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature-Converter</title>
+    <style>
+      *
+      {
+        margin: 0;
+        padding: 0;
+       
+        
+      }
+      body
+      {
+        padding:50px 100px;
+        margin: 30px;
+        background-color: yellowgreen;
+      
+      
+      }
+      h1
+      {
+        text-align: center;
+        margin: 10px;
+      }
+      .container
+      {
+        text-align: center;
+        background-color:#59a89e;
+        padding: 50px;
+      }
+      input
+      {
+        padding: 10px;
+        text-align: center;
+        font-size: 30px;
+        margin:10px;
+        font-weight: bold;
+        
+      }
+      .block
+      {
+        display: inline-block;
+        margin: 10px;
+        
+      }
+      label
+      {
+        font-size: 30px;
+       
+      }
+      button
+      {
+       position: relative;
+       bottom: 70px;
+       left: 100px;
+       padding:7px 40px;
+       margin: 0px 10px;
+       cursor: pointer;
+       
+      }
+      #btn0
+        {
+           color:white;
+           background-color:#636396;
+           font-size: 20px;
+           border-radius: 10px;
+        }
+        #btn1
+        {
+          color:white;
+           background-color: #966bb5;
+           font-size: 20px;
+           border-radius: 10px;
+        }
+        #btn2
+        {
+          color:white;
+           background-color: orange;
+           font-size: 20px;
+           border-radius: 10px;
+        }
+        #btn3
+        {
+          color:white;
+           background-color: green;
+           font-size: 20px;
+           border-radius: 10px;
+        }
+        #btn4
+        {
+          color:white;
+           background-color: green;
+           font-size: 20px;
+           border-radius: 10px;
+        }
+        #btn5
+        {
+          color:black;
+           background-color: #989946;
+           font-size: 20px;
+           border-radius: 10px;
+        }
+        #btn
+        {
+          
+          color:black;
+           background-color:yellowgreen;
+           font-size: 20px;
+           border-radius: 10px;
+        }
+     
+    </style>
+</head>
+<body>
+  <div class="coler">
+    <button id="btn" onclick="bgchange(' yellowgreen')">Default</button>
+    <button id="btn0" onclick="bgchange('#636396')">Lblue</button>
+    <button id="btn1" onclick="bgchange('#966bb5')">Purple</button>
+     <button id="btn2" onclick="bgchange('#b07d30')">Orange</button>
+    <button id="btn4" onclick="bgchange('green')">Green</button> 
+    <button id="btn5" onclick="bgchange('#989946')">Yellow</button>
+  </div>
+  
+    <h1>Temperature-Converter</h1>
+    <div class="container">
+        <div  class="block">
+            <label>Calcius</label><br>
+            <input type="number" value="0" id="cel"  onclick="non()">
+        </div>
+        <div class="block">
+            <label>Fahrenheit</label><br>
+            <input type="number" value="32" id="fah" onclick="non()">
+        </div>
+    </div>
+    <script>
+    let cel=document.getElementById("cel");
+    let fah=document.getElementById("fah");
+
+    cel.addEventListener('input',function(){
+       let c=this.value;
+       let f=(c*9/5) + 32
+       if(!Number.isInteger(f)){
+            f= f.toFixed(4);
+       }
+       fah.value=f;
+    })
+    fah.addEventListener('input',function(){
+       let f=this.value;
+       let c=(f-32) * 5/9
+       if(!Number.isInteger(c)){
+        c=c.toFixed(4);
+       }
+       cel.value=c;
+    })
+     function bgchange(color){
+      document.body.style.backgroundColor=color;
+     }
+    </script>
+</body>
+</html>
